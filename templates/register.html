@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Face Registration System</title>
+
+<style>
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
+
+.container {
+    width: 400px;
+    margin: 60px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    margin-top: 25px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Register Face</h2>
+
+{% if error %}
+<div style="color:white;background:red;padding:10px;margin-bottom:15px;border-radius:5px;">
+    {{ error }}
+</div>
+{% endif %}
+
+<form action="/register" method="post">
+<input type="text" name="name" placeholder="Enter Student Name" required>
+<button type="submit">Capture Face</button>
+</form>
+
+<h3>Registered Students</h3>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Images</th>
+</tr>
+
+{% for student in students %}
+<tr>
+<td>{{ student.name }}</td>
+<td>{{ student.count }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

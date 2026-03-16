@@ -1,0 +1,16 @@
+<h2>Registered Students</h2>
+
+<table border="1">
+<tr>
+<th>Name</th>
+<th>Images Captured</th>
+</tr>
+
+{% for student in students %}
+<tr>
+<td>{{ student.name }}</td>
+<td>{{ student.count }}</td>
+</tr>
+{% endfor %}
+
+</table>
